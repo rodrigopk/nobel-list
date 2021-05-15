@@ -1,39 +1,86 @@
 import React from 'react';
 
-import { Box, Heading, Text } from '../../../../libs/ui';
+import { Box, Text } from '../../../../libs/ui';
 import { useListPrizes } from '../../application/use_list_prizes';
+import { Prize, Laureate } from '../../domain';
+import { LoadingScaffold, ErrorState, EmptyState } from '../components';
 
-const PrizesList: React.FC<{}> = () => {
-  const { data, isLoading, isError } = useListPrizes();
+const LaureatesPerMotivation: React.FC<{ laureates: Laureate[] }> = (
+  { laureates }: { laureates: Laureate[] },
+) => {
+  const laureatesByMotivation: { [motivation: string]: Laureate[] } = {};
 
-  if (isLoading) {
-    return (
-      <Box>
-        <Heading as="h1">Loading...</Heading>
-      </Box>
-    );
-  }
+  laureates.forEach((laureate) => {
+    laureatesByMotivation[laureate.motivation] = [
+      ...(laureatesByMotivation[laureate.motivation] || []),
+      laureate,
+    ];
+  });
 
-  if (isError) {
-    return (
-      <Box>
-        <Heading as="h1">Error!</Heading>
-      </Box>
-    );
-  }
+  return (
+    <>
+      {Object.values(laureatesByMotivation).map((laureateGroup) => {
+        const names = laureateGroup.map((laureate) => laureate.fullName()).join(', ');
+        const { motivation } = laureateGroup[0];
+        return (
+          <Box ml={2}>
+            <Text>{names}</Text>
+            <Box ml={2}>
+              <Text>{motivation}</Text>
+            </Box>
+          </Box>
+        );
+      })}
+    </>
+  );
+};
+
+const PrizeList: React.FC<{ prizes: Prize[] }> = ({ prizes }: { prizes: Prize[] }) => (
+  <>
+    {
+      prizes.map((prize) => (
+        <Box>
+          <Text>{prize.category}</Text>
+          <LaureatesPerMotivation laureates={prize.laureates} />
+        </Box>
+      ))
+    }
+  </>
+);
+
+const PrizesPerYear: React.FC<{ prizes: Prize[] }> = ({ prizes }: { prizes: Prize[] }) => {
+  const prizesPerYear: { [year: string]: Prize[] } = {};
+
+  prizes.forEach((prize) => {
+    prizesPerYear[prize.year] = [...(prizesPerYear[prize.year] || []), prize];
+  });
 
   return (
     <>
       {
-        data?.map((prize) => (
-          <Box>
-            <Text>{prize.year}</Text>
-            <Text>{prize.category}</Text>
-          </Box>
+        Object.entries(prizesPerYear).map(([year, prizesInYear]) => (
+          <>
+            <Box bg="yellow">
+              <Text>{year}</Text>
+            </Box>
+            <PrizeList prizes={prizesInYear} />
+          </>
         ))
       }
     </>
   );
 };
 
-export default PrizesList;
+const PrizesListPage: React.FC<{}> = () => {
+  const { data, isLoading, isError } = useListPrizes();
+
+  if (isLoading) return <LoadingScaffold />;
+
+  if (isError) return <ErrorState />;
+
+  if (!data || data.length === 0) return <EmptyState />;
+
+  return <PrizesPerYear prizes={data} />;
+};
+
+export default PrizesListPage;
