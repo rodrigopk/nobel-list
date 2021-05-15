@@ -1,1 +1,3 @@
-export { ChakraProvider, Box, Heading } from '@chakra-ui/react';
+export {
+  ChakraProvider, Box, Heading, Text,
+} from '@chakra-ui/react';

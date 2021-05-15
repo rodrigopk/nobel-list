@@ -2,14 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { ChakraProvider } from './libs/ui';
-import App from './App';
+import { QueryProvider, ReactQueryDevtools } from './libs/query';
+import { EnvironmentService } from './libs/config';
 import reportWebVitals from './reportWebVitals';
+import PrizesList from './app/prizes/presentation/pages/prizes_list';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
+    <QueryProvider>
+      <ChakraProvider>
+        <PrizesList />
+        {EnvironmentService.isReactQueryDevtoolsEnabled() && (
+          <ReactQueryDevtools initialIsOpen={false} />
+        )}
+      </ChakraProvider>
+    </QueryProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
