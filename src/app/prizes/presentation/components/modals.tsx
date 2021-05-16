@@ -33,8 +33,11 @@ const LaureateDetail: React.FC<{ laureate: Laureate }> = ({ laureate }: { laurea
             <Text align="center">
               {`Nobel prize of ${prize.capitalizedCategory()} ${prize.year}`}
             </Text>
-            <Text align="center" variant="caption" color="gray.600">
+            <Text my={2} align="center" variant="caption" color="gray.600">
               {`Prize share: ${prize.share}`}
+            </Text>
+            <Text align="center">
+              {prize.motivation}
             </Text>
           </Box>
         ))
@@ -42,12 +45,12 @@ const LaureateDetail: React.FC<{ laureate: Laureate }> = ({ laureate }: { laurea
     </Center>
     {laureate?.born && (
     <Center mb={3}>
-      <Text>{`Born: ${laureate?.born} at ${laureate?.birthPlace()}`}</Text>
+      <Text align="center">{`Born: ${laureate?.born} at ${laureate?.birthPlace()}`}</Text>
     </Center>
     )}
     {laureate?.died && (
     <Center mb={3}>
-      <Text>{`Died: ${laureate?.died}`}</Text>
+      <Text align="center">{`Died: ${laureate?.died}`}</Text>
     </Center>
     )}
   </>
