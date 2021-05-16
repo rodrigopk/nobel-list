@@ -7,6 +7,7 @@ import {
   ImageHeader,
   PrizesPerYearList,
   LaureateDetailModal,
+  Footer,
 } from '../components';
 import { useListPrizes } from '../../application/use_list_prizes';
 import { LaureateContainer } from '../containers';
@@ -30,6 +31,7 @@ const PrizesListPage: React.FC<{}> = () => (
     <ImageHeader />
     <PageContent />
     <LaureateDetailModal />
+    <Footer />
   </LaureateContainer>
 );
 
