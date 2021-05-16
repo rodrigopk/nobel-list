@@ -7,6 +7,7 @@ export {
   Text,
   Divider,
   Image,
+  Skeleton,
 } from '@chakra-ui/react';
 
 export { appTheme, appColors } from './theme';

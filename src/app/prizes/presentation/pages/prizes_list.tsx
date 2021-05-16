@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  LoadingScaffold,
+  LoadingSkeleton,
   ErrorState,
   EmptyState,
   ImageHeader,
@@ -12,7 +12,7 @@ import { useListPrizes } from '../../application/use_list_prizes';
 const PageContent: React.FC<{}> = () => {
   const { data, isLoading, isError } = useListPrizes();
 
-  if (isLoading) return <LoadingScaffold />;
+  if (isLoading) return <LoadingSkeleton />;
 
   if (isError) return <ErrorState />;
 
