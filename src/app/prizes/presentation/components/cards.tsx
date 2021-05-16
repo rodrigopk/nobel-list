@@ -19,11 +19,11 @@ export const LaureateCard: React.FC<{ laureate: PrizeLaureate }> = (
       mr={2}
       my={2}
       p={2}
-      w="sm"
+      w={{ sm: 'xs', md: 'sm' }}
       borderColor="gray.500"
       borderWidth="1px"
       borderRadius="lg"
-      boxShadow="md"
+      boxShadow={isHovered ? 'lg' : 'md'}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => setSelectedLaureateId && setSelectedLaureateId(laureate.id)}

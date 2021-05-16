@@ -21,28 +21,28 @@ export const definitions = {
     Text: {
       variants: {
         h1: {
-          fontSize: '64px',
-          lineHeight: '66px',
+          fontSize: '4rem',
+          lineHeight: '4.125rem',
         },
         h3: {
-          fontSize: '32px',
-          lineHeight: '35px',
+          fontSize: '2rem',
+          lineHeight: '2.125rem',
         },
         h5: {
-          fontSize: '24px',
-          lineHeight: '26px',
+          fontSize: '1.5rem',
+          lineHeight: '1.675rem',
         },
         h6: {
-          fontSize: '20px',
-          lineHeight: '22px',
+          fontSize: '1.25rem',
+          lineHeight: '1.375rem',
         },
         body: {
-          fontSize: '16px',
-          lineHeight: '18px',
+          fontSize: '1rem',
+          lineHeight: '1.125rem',
         },
         caption: {
-          fontSize: '14px',
-          lineHeight: '16px',
+          fontSize: '0.875rem',
+          lineHeight: '1rem',
         },
       },
       defaultProps: {

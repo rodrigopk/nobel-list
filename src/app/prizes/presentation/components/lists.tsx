@@ -26,10 +26,10 @@ export const PrizeList: React.FC<{ prizes: Prize[] }> = ({ prizes }: { prizes: P
       prizes.map((prize, index) => (
         <Box my={2} key={index}>
           <Divider />
-          <Text variant="h5" color="gold" my={1}>
+          <Text fontSize={{ sm: '1.25rem', md: '1.5rem' }} color="gold" my={3}>
             {`The Nobel Prize in ${prize.capitalizedCategory()} ${prize.year}`}
           </Text>
-          <Divider />
+          <Divider mb={2} />
           <LaureatesList laureates={prize.laureates} />
         </Box>
       ))
@@ -52,7 +52,7 @@ export const PrizesPerYearList: React.FC<{ prizes: Prize[] }> = (
         Object.entries(byYear).map(([year, prizesInYear]) => (
           <Box m={3} key={year}>
             <Center justify="center" align="center">
-              <Text variant="h1">{`NOBEL PRIZES ${year}`}</Text>
+              <Text fontSize={{ sm: '2rem', md: '4rem' }}>{`NOBEL PRIZES ${year}`}</Text>
             </Center>
             <PrizeList prizes={prizesInYear} />
           </Box>
