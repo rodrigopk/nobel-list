@@ -13,6 +13,7 @@ export {
   ModalContent,
   ModalBody,
   ModalCloseButton,
+  Spinner,
 } from '@chakra-ui/react';
 
 export { appTheme } from './theme';
