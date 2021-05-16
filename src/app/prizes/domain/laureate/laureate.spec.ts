@@ -85,6 +85,22 @@ describe('create', () => {
       }),
     );
   });
+
+  it('handles issue with invalid dates', () => {
+    const dto = {
+      ...laureateFixture,
+      born: '2015-00-00',
+      died: '2015-00-00',
+    };
+
+    expect(Laureate.create(dto)).toEqual(
+      expect.objectContaining({
+        id: dto.id,
+        born: undefined,
+        died: undefined,
+      }),
+    );
+  });
 });
 
 describe('fullName', () => {

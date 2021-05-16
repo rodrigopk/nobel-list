@@ -24,7 +24,7 @@ export class Laureate extends BaseLaureate {
       dto.firstname,
       this.handleBrokenCharacters(dto.surname),
       dto.born && this.formatDateString(dto.born),
-      dto.died === '0000-00-00' ? undefined : this.formatDateString(dto.died),
+      dto.died && this.formatDateString(dto.died),
       dto.bornCountry,
       dto.bornCountryCode,
       dto.bornCity,
@@ -34,6 +34,9 @@ export class Laureate extends BaseLaureate {
   }
 
   private static formatDateString(dateString: string) {
+    const date = new Date(dateString);
+    if (Number.isNaN(date.valueOf())) return undefined;
+
     return new Date(dateString).toLocaleString(
       'default', { month: 'short', day: 'numeric', year: 'numeric' },
     );
