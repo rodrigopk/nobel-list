@@ -12,7 +12,7 @@ export class NobelPrizesFacade {
     toYear: string;
   }): Promise<Prize[]> {
     const result = await this.httpService.get<{ prizes: PrizeDTO[] }>(
-      `http://api.nobelprize.org/v1/prize.json?year=${fromYear}&yearTo=${toYear}`,
+      `https://api.nobelprize.org/v1/prize.json?year=${fromYear}&yearTo=${toYear}`,
     );
 
     return result.data.prizes.map((dto) => Prize.create(dto));

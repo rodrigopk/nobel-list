@@ -34,7 +34,7 @@ describe('NobelPrizesFacade', () => {
 
       it('makes an http request to list prizes', () => {
         expect(mockHttpService.get).toHaveBeenCalledWith(
-          `http://api.nobelprize.org/v1/prize.json?year=${fromYear}&yearTo=${toYear}`,
+          `https://api.nobelprize.org/v1/prize.json?year=${fromYear}&yearTo=${toYear}`,
         );
       });
 
