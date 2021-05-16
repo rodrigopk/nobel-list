@@ -3,5 +3,11 @@ export type LaureateDTO = {
   firstname: string;
   surname?: string;
   motivation: string;
-  share: string;
+  share?: string;
+  born?: string,
+  died?: string,
+  bornCountry?: string,
+  bornCountryCode?: string,
+  bornCity?: string,
+  gender?: string,
 };

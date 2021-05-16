@@ -12,6 +12,12 @@ describe('create', () => {
         surName: dto.surname,
         motivation: dto.motivation,
         share: dto.share,
+        born: dto.born,
+        died: dto.died,
+        bornCountry: dto.bornCountry,
+        bornCountryCode: dto.bornCountryCode,
+        bornCity: dto.bornCity,
+        gender: dto.gender,
       }),
     );
   });
