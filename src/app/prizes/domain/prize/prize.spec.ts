@@ -22,3 +22,19 @@ describe('create', () => {
     );
   });
 });
+
+describe('capitalizedCategory', () => {
+  it('returns the capitalized category for a prize instance', () => {
+    const prize = Prize.create({ ...prizeFixture, category: 'chemistry' });
+
+    expect(prize.capitalizedCategory()).toEqual('Chemistry');
+  });
+
+  describe('given category is not defined', () => {
+    it('returns an empty string', () => {
+      const prize = Prize.create({ ...prizeFixture, category: undefined } as any);
+
+      expect(prize.capitalizedCategory()).toEqual('');
+    });
+  });
+});

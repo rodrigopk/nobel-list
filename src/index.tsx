@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { ChakraProvider } from './libs/ui';
+import { appTheme, ChakraProvider } from './libs/ui';
 import { QueryProvider, ReactQueryDevtools } from './libs/query';
 import { EnvironmentService } from './libs/config';
 import reportWebVitals from './reportWebVitals';
@@ -10,7 +10,7 @@ import PrizesList from './app/prizes/presentation/pages/prizes_list';
 ReactDOM.render(
   <React.StrictMode>
     <QueryProvider>
-      <ChakraProvider>
+      <ChakraProvider theme={appTheme}>
         <PrizesList />
         {EnvironmentService.isReactQueryDevtoolsEnabled() && (
           <ReactQueryDevtools initialIsOpen={false} />

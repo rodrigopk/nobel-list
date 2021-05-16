@@ -15,4 +15,10 @@ export class Prize {
       dto.laureates.map((laureate) => Laureate.create(laureate)),
     );
   }
+
+  public capitalizedCategory() {
+    if (!this.category) return '';
+
+    return this.category.charAt(0).toUpperCase() + this.category.slice(1);
+  }
 }
