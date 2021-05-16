@@ -10,11 +10,13 @@ import {
 import { useListPrizes } from '../../application/use_list_prizes';
 
 const PageContent: React.FC<{}> = () => {
-  const { data, isLoading, isError } = useListPrizes();
+  const {
+    data, isLoading, isError, error,
+  } = useListPrizes();
 
   if (isLoading) return <LoadingSkeleton />;
 
-  if (isError) return <ErrorState />;
+  if (isError) return <ErrorState error={error as Error} />;
 
   if (!data || data.length === 0) return <EmptyState />;
 
