@@ -10,4 +10,19 @@ export const laureateFixture: LaureateDTO = {
   bornCountryCode: 'US',
   bornCity: 'East Orange, NJ',
   gender: 'male',
+  prizes: [
+    {
+      year: '2017',
+      category: 'economics',
+      share: '3',
+      motivation: '"for his contributions to behavioural economics"',
+      affiliations: [
+        {
+          name: 'University of Chicago',
+          city: 'Chicago, IL',
+          country: 'USA',
+        },
+      ],
+    },
+  ],
 };

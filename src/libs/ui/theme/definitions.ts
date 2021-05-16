@@ -24,6 +24,10 @@ export const definitions = {
           fontSize: '64px',
           lineHeight: '66px',
         },
+        h3: {
+          fontSize: '32px',
+          lineHeight: '35px',
+        },
         h5: {
           fontSize: '24px',
           lineHeight: '26px',

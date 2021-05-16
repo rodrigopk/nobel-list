@@ -3,6 +3,7 @@ export {
   Box,
   Flex,
   Center,
+  Circle,
   Text,
   Divider,
   Image,
