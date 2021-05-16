@@ -7,6 +7,11 @@ export {
   Divider,
   Image,
   Skeleton,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalBody,
+  ModalCloseButton,
 } from '@chakra-ui/react';
 
 export { appTheme } from './theme';

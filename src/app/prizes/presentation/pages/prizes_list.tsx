@@ -8,6 +8,8 @@ import {
   PrizesPerYearList,
 } from '../components';
 import { useListPrizes } from '../../application/use_list_prizes';
+import { LaureateContainer } from '../containers';
+import { LaureateDetailModal } from '../components/modals';
 
 const PageContent: React.FC<{}> = () => {
   const {
@@ -24,10 +26,11 @@ const PageContent: React.FC<{}> = () => {
 };
 
 const PrizesListPage: React.FC<{}> = () => (
-  <>
+  <LaureateContainer>
     <ImageHeader />
     <PageContent />
-  </>
+    <LaureateDetailModal />
+  </LaureateContainer>
 );
 
 export default PrizesListPage;
