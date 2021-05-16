@@ -4,14 +4,14 @@ import {
   Box,
   Text,
 } from '../../../../libs/ui';
-import { Laureate } from '../../domain';
+import { PrizeLaureate } from '../../domain';
 import { LaureateContext } from '../containers';
 
-export const LaureateCard: React.FC<{ laureate: Laureate }> = (
-  { laureate }: { laureate: Laureate },
+export const LaureateCard: React.FC<{ laureate: PrizeLaureate }> = (
+  { laureate }: { laureate: PrizeLaureate },
 ) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { setSelectedLaureate } = useContext(LaureateContext);
+  const { setSelectedLaureateId } = useContext(LaureateContext);
 
   return (
     <Box
@@ -26,7 +26,7 @@ export const LaureateCard: React.FC<{ laureate: Laureate }> = (
       boxShadow="md"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setSelectedLaureate && setSelectedLaureate(laureate)}
+      onClick={() => setSelectedLaureateId && setSelectedLaureateId(laureate.id)}
     >
       <Text variant="h6" color={isHovered ? 'gold' : 'black'} mt={3} mb={6}>
         {laureate.fullName()}

@@ -10,7 +10,6 @@ describe('create', () => {
         id: dto.id,
         firstName: dto.firstname,
         surName: dto.surname,
-        motivation: dto.motivation,
         share: dto.share,
         born: dto.born,
         died: dto.died,
@@ -34,7 +33,6 @@ describe('create', () => {
         id: dto.id,
         firstName: dto.firstname,
         surName: 'Ōmura',
-        motivation: dto.motivation,
         share: dto.share,
       }),
     );

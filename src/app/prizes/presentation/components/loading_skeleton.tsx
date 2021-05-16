@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Box, Center, Divider, Flex, Skeleton, Text,
 } from '../../../../libs/ui';
-import { Laureate, laureateFixture } from '../../domain';
+import { PrizeLaureate, prizeLaureateFixture } from '../../domain';
 import { LaureateCard } from './cards';
 
 export const LoadingSkeleton: React.FC<{}> = () => (
@@ -23,7 +23,7 @@ export const LoadingSkeleton: React.FC<{}> = () => (
       <Divider />
       <Flex direction={{ sm: 'column', md: 'row' }}>
         <Skeleton mr={2}>
-          <LaureateCard laureate={Laureate.create(laureateFixture)} />
+          <LaureateCard laureate={PrizeLaureate.create(prizeLaureateFixture)} />
         </Skeleton>
       </Flex>
     </Box>

@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
-import { Laureate } from '../../domain';
-
 export const LaureateContext = React.createContext<{
-  selectedLaureate?: Laureate;
-  setSelectedLaureate?:(laureate?: Laureate) => void;
+  selectedLaureateId?: string;
+  setSelectedLaureateId?:(id?: string) => void;
     }>({});
 
 export const LaureateContainer = ({
@@ -12,13 +10,13 @@ export const LaureateContainer = ({
 }: {
   children: React.ReactElement | React.ReactElement[];
 }) => {
-  const [selectedLaureate, setSelectedLaureate] = useState<Laureate>();
+  const [selectedLaureateId, setSelectedLaureateId] = useState<string>();
 
   return (
     <LaureateContext.Provider
       value={{
-        selectedLaureate,
-        setSelectedLaureate,
+        selectedLaureateId,
+        setSelectedLaureateId,
       }}
     >
       {children}

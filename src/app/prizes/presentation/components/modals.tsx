@@ -8,31 +8,41 @@ import {
   ModalOverlay,
   ModalCloseButton,
   Center,
+  Skeleton,
 } from '../../../../libs/ui';
+import { useFetchLaureate } from '../../application/use_fetch_laureate';
 import { LaureateContext } from '../containers';
 
 export const LaureateDetailModal: React.FC<{}> = () => {
-  const { selectedLaureate, setSelectedLaureate } = useContext(LaureateContext);
+  const { selectedLaureateId, setSelectedLaureateId } = useContext(LaureateContext);
+  const { getLaureateById } = useFetchLaureate();
+  if (!selectedLaureateId) return null;
+
+  const { data, isLoading } = getLaureateById(selectedLaureateId);
 
   const handleClose = () => {
-    if (setSelectedLaureate) {
-      setSelectedLaureate(undefined);
+    if (setSelectedLaureateId) {
+      setSelectedLaureateId(undefined);
     }
   };
 
   return (
     <>
-      <Modal isCentered isOpen={!!selectedLaureate} onClose={handleClose}>
+      <Modal isCentered isOpen={!!selectedLaureateId} onClose={handleClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton />
           <ModalBody>
-            <Center>
-              <Text>{selectedLaureate?.fullName()}</Text>
-            </Center>
-            <Center>
-              <Text>{selectedLaureate?.motivation}</Text>
-            </Center>
+            <Skeleton isLoaded={!isLoading}>
+              <Center>
+                <Text>{data?.fullName()}</Text>
+              </Center>
+            </Skeleton>
+            {/* <Skeleton isLoaded={!isLoading}>
+              <Center>
+                <Text>{data?.motivation}</Text>
+              </Center>
+            </Skeleton> */}
           </ModalBody>
         </ModalContent>
       </Modal>

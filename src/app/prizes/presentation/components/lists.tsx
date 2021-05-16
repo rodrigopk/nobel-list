@@ -7,11 +7,11 @@ import {
   Text,
   Flex,
 } from '../../../../libs/ui';
-import { Prize, Laureate } from '../../domain';
+import { Prize, PrizeLaureate } from '../../domain';
 import { LaureateCard } from './cards';
 
-const LaureatesList: React.FC<{ laureates: Laureate[] }> = (
-  { laureates }: { laureates: Laureate[] },
+const LaureatesList: React.FC<{ laureates: PrizeLaureate[] }> = (
+  { laureates }: { laureates: PrizeLaureate[] },
 ) => (
   <Flex direction={{ sm: 'column', md: 'row' }}>
     {laureates.map((laureate, index) => (

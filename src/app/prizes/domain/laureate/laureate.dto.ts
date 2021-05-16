@@ -1,8 +1,6 @@
-export type LaureateDTO = {
-  id: string;
-  firstname: string;
-  surname?: string;
-  motivation: string;
+import { BaseLaureateDTO } from './base_laureate.dto';
+
+export type LaureateDTO = BaseLaureateDTO & {
   share?: string;
   born?: string,
   died?: string,
