@@ -1,12 +1,15 @@
+import { BasePrize } from './base_prize';
 import { PrizeDTO } from './prize.dto';
 import { PrizeLaureate } from './prize_laureate';
 
-export class Prize {
+export class Prize extends BasePrize {
   constructor(
     public year: string,
     public category: string,
     public laureates: PrizeLaureate[],
-  ) {}
+  ) {
+    super(year, category);
+  }
 
   public static create(dto: PrizeDTO) {
     return new Prize(
@@ -14,11 +17,5 @@ export class Prize {
       dto.category,
       dto.laureates.map((laureate) => PrizeLaureate.create(laureate)),
     );
-  }
-
-  public capitalizedCategory() {
-    if (!this.category) return '';
-
-    return this.category.charAt(0).toUpperCase() + this.category.slice(1);
   }
 }
