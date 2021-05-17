@@ -1,5 +1,7 @@
 # Nobel List
-A simple React.js application that will query the Nobel API and list all of the prizes that have been awarded between 2015 and 2017 and what the laureate's motivation was.
+A simple React.js application that will query the Nobel API and list all of the prizes that have been awarded between 2015 and 2017 and what the laureate's motivation was. 
+
+It is available at https://festive-williams-14fdfb.netlify.app
 
 
 ### Quickstart
