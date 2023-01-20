@@ -37,7 +37,7 @@ export class Laureate extends BaseLaureate {
     const date = new Date(dateString);
     if (Number.isNaN(date.valueOf())) return undefined;
 
-    return new Date(dateString).toLocaleString(
+    return new Date(`${dateString} 10:00:00`).toLocaleString(
       'default', { month: 'short', day: 'numeric', year: 'numeric' },
     );
   }
