@@ -54,7 +54,7 @@ export const PrizesPerYearList: React.FC<{ prizes: Prize[] }> = ({
 
   return (
     <>
-      {Object.entries(byYear).map(([year, prizesInYear]) => (
+      {Object.entries(byYear).reverse().map(([year, prizesInYear]) => (
         <Box m={3} key={year}>
           <Center justifyContent="center" alignItems="center">
             <Text
