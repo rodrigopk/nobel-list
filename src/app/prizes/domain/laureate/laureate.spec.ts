@@ -140,7 +140,7 @@ describe('initials', () => {
     const laureate = Laureate.create(laureateFixture);
 
     expect(laureate.initials()).toEqual(
-      `${laureate.firstName[0]}${laureate.surName && laureate.surName[0]}`,
+      `${laureate.firstName && laureate.firstName[0]}${laureate.surName && laureate.surName[0]}`,
     );
   });
 
@@ -151,8 +151,18 @@ describe('initials', () => {
       });
 
       expect(laureate.initials()).toEqual(
-        `${laureate.firstName[0]}`,
+        `${laureate.firstName && laureate.firstName[0]}`,
       );
+    });
+  });
+
+  describe('given there is no first name', () => {
+    it('returns an empty string', () => {
+      const laureate = Laureate.create({
+        ...laureateFixture, firstname: undefined, surname: undefined,
+      });
+
+      expect(laureate.initials()).toEqual('');
     });
   });
 });

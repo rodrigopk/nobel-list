@@ -1,7 +1,7 @@
 export class BaseLaureate {
   constructor(
     public id: string,
-    public firstName: string,
+    public firstName: string | undefined,
     public surName: string | undefined,
   ) {}
 

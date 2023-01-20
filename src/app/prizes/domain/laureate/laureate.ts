@@ -5,7 +5,7 @@ import { LaureatePrize } from './laureate_prize';
 export class Laureate extends BaseLaureate {
   constructor(
     public id: string,
-    public firstName: string,
+    public firstName: string | undefined,
     public surName: string | undefined,
     public born: string | undefined,
     public died: string | undefined,
@@ -47,6 +47,7 @@ export class Laureate extends BaseLaureate {
   }
 
   public initials() {
+    if (!this.firstName) return '';
     if (!this.surName) return this.firstName[0];
 
     return `${this.firstName[0]}${this.surName[0]}`;

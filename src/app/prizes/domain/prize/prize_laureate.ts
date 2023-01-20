@@ -4,7 +4,7 @@ import { PrizeLaureateDTO } from './prize_laureate.dto';
 export class PrizeLaureate extends BaseLaureate {
   constructor(
     public id: string,
-    public firstName: string,
+    public firstName: string | undefined,
     public surName: string | undefined,
     public motivation: string,
     public share?: string,
