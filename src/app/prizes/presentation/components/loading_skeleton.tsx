@@ -8,7 +8,7 @@ import { LaureateCard } from './cards';
 
 export const LoadingSkeleton: React.FC<{}> = () => (
   <Box m={3}>
-    <Center justify="center" align="center">
+    <Center justifyContent="center" alignItems="center">
       <Skeleton>
         <Text variant="h1">Header placeholder</Text>
       </Skeleton>
